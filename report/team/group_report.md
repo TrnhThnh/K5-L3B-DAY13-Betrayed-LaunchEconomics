@@ -38,7 +38,7 @@ Số của nhiệm vụ trước được dùng lại cho nhiệm vụ sau: chi 
 
 **Đề xuất:** Go có điều kiện, với năm điều kiện có người phụ trách và ngày kiểm tra trong [hồ sơ launch v0](ho_so_launch_v0.md).
 
-**Kết quả duyệt chéo:** tại thời điểm nộp, nhóm không ghi nhận được phiếu chấm của hội đồng và chưa chấm nhóm khác.
+**Duyệt chéo:** phần này là tuỳ chọn ở buổi này; nhóm không thực hiện nên không có phiếu chấm.
 
 ## 5. Khó khăn và cách xử lý
 
@@ -54,7 +54,7 @@ Số của nhiệm vụ trước được dùng lại cho nhiệm vụ sau: chi 
 
 ## 6. Tổng hợp đóng góp
 
-- Trịnh Hưng Thịnh: nhiệm vụ A và B; soạn bảng lỗi và bảng khắc phục với AI; đối soát kế hoạch pilot và hồ sơ.
+- Trịnh Hưng Thịnh: nhiệm vụ A và B; soạn bảng lỗi (hai cột nhãn nháp do Codex điền) và bảng khắc phục; đối soát kế hoạch pilot và hồ sơ.
 - Lưu Nguyễn Chí Đức: kiểm số A–B, nhiệm vụ D và E, tổng hợp bảng lỗi và báo cáo nhóm.
 - Cả hai: nộp bài.
 

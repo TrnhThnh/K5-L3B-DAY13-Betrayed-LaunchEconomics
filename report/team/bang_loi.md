@@ -4,12 +4,12 @@
 
 20 ca lỗi nằm trong `docs/Ngay13_Lab13_De_bai_hoc_vien.docx`. Năm loại theo Google PAIR: **Do người dùng · Hệ thống · Ngữ cảnh · Giới hạn hệ thống · Ngầm**. Gắn nhãn theo nguyên nhân gốc, không theo chỗ cần sửa.
 
-## Hai cột nhãn dự thảo cho Thịnh và Đức
+## Hai cột nhãn nháp do AI điền
 
 Codex điền cả hai cột theo cùng bộ nhãn tham khảo. Hai bản nháp trùng 20/20 do dùng chung nguồn, **không phải hai bộ nhãn do hai thành viên gắn độc lập**.
 Cột “Nhãn thống nhất” là nhãn nhóm nhận dùng sau khi đối chiếu với tình huống trong đề.
 
-| Ca | Thịnh | Đức | Trùng bản nháp? | Nhãn thống nhất |
+| Ca | Nháp AI 1 | Nháp AI 2 | Trùng bản nháp? | Nhãn thống nhất |
 | --: | --- | --- | --- | --- |
 | 1 | Do người dùng | Do người dùng | Có | Do người dùng |
 | 2 | Hệ thống | Hệ thống | Có | Hệ thống |

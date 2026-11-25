@@ -32,10 +32,10 @@ Bốn vai của lab:
 | --- | --- | --- |
 | A–B | Thịnh | A1–A4, B1–B4 trong [lab13.py](src/lab13.py) và [bảng chi phí](report/team/bang_chi_phi.md); bàn giao số A3–A4, B1–B4 để chọn phạm vi, ngưỡng chi phí và rủi ro |
 | Kiểm số A–B | Đức | Chạy lại trên máy thứ hai và đối chiếu một dòng chi phí |
-| C | Cả hai | Mỗi người ghi riêng 20 nhãn; Đức tổng hợp vào [bảng lỗi](report/team/bang_loi.md); hai người tính đồng thuận, thống nhất ca lệch và chọn 5 ca khắc phục |
+| C | Cả hai | Thịnh soạn bảng nhãn nháp (hai cột do Codex điền) và 5 ca khắc phục; Đức tổng hợp vào [bảng lỗi](report/team/bang_loi.md); chưa có hai bộ nhãn độc lập nên không tính đồng thuận |
 | D | Đức | Phép tính D1 trong [lab13.py](src/lab13.py) và [kế hoạch pilot](report/team/pilot_plan.yaml) |
 | E | Đức | [Chỉ số, event, rủi ro](report/team/chi_so.md) và [hồ sơ launch v0](report/team/ho_so_launch_v0.md) |
-| Duyệt chéo, báo cáo và nộp | Cả hai | Đức tổng hợp [báo cáo nhóm](report/team/group_report.md) và [phiếu chấm](report/team/phieu_cham.md); Thịnh rà bằng chứng chi phí và trình bày A–B; mỗi người tự điền báo cáo cá nhân và tự nộp link repo trên LMS |
+| Duyệt chéo, báo cáo và nộp | Cả hai | Đức tổng hợp [báo cáo nhóm](report/team/group_report.md) và [phiếu chấm](report/team/phieu_cham.md); Thịnh rà bằng chứng chi phí và trình bày A–B; mỗi người tự điền báo cáo cá nhân và tự nộp link repo trên LMS. Duyệt chéo là tuỳ chọn ở buổi này và nhóm không thực hiện |
 
 ## Cá nhân
 
@@ -53,7 +53,7 @@ Bốn vai của lab:
 - Điền `report/team/bang_chi_phi.md`.
 - Lập bảng chia việc ban đầu của nhóm.
 - Codex hỗ trợ triển khai và kiểm tra A–B theo hướng dẫn trong repo.
-- Soạn bảng lỗi, nhãn tham khảo và bảng khắc phục với Codex; đối soát kế hoạch pilot, chỉ số và hồ sơ launch.
+- Soạn bảng lỗi (hai cột nhãn nháp do Codex điền), nhãn tham khảo và bảng khắc phục; đối soát kế hoạch pilot, chỉ số và hồ sơ launch.
 
 ### Bằng chứng
 
@@ -67,7 +67,7 @@ Bốn vai của lab:
 
 - Kiểm số A–B.
 - Nhiệm vụ D (cỡ mẫu và kế hoạch pilot) và E (chỉ số, event, rủi ro, hồ sơ launch v0).
-- Gắn nhãn 20 ca lỗi (người gắn nhãn 2) và tổng hợp bảng lỗi.
+- Tổng hợp bảng lỗi (phần gắn nhãn độc lập chưa thực hiện).
 - Tổng hợp báo cáo nhóm và phiếu chấm.
 
 ### Đóng góp cụ thể
@@ -83,4 +83,5 @@ Bốn vai của lab:
 ### Bằng chứng
 
 - Commit `438292a`: [lab13.py](src/lab13.py), [pilot_plan.yaml](report/team/pilot_plan.yaml), [chi_so.md](report/team/chi_so.md), [ho_so_launch_v0.md](report/team/ho_so_launch_v0.md).
+- Commit `3301706`: [pilot_plan.yaml](report/team/pilot_plan.yaml), [bang_loi.md](report/team/bang_loi.md) và các báo cáo.
 - Con số chính: cần 859 yêu cầu mỗi nhóm cho mức chênh 6 điểm; power 0,64 nếu tác động thật là 5 điểm; xem lại 100% riêng `hang_nang` bằng 1,22× chi phí nhân viên (simulated).

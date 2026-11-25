@@ -5,7 +5,7 @@ Nhóm số n chấm nhóm số n + 1; nhóm cuối chấm nhóm 1. Chấm theo b
 - Nhóm chấm (hội đồng): Betrayed, L3B
 - Nhóm được chấm: không có
 
-**Phiếu chưa được chấm:** tại thời điểm nộp, nhóm không ghi nhận được phiên duyệt chéo với nhóm được phân công.
+**Phiếu không chấm:** phần duyệt chéo là tuỳ chọn ở buổi này và nhóm không thực hiện.
 
 | Tiêu chí | 0 điểm | 5 điểm | 10 điểm | Điểm | Lý do (có số) |
 | --- | --- | --- | --- | ---: | --- |
@@ -16,7 +16,7 @@ Nhóm số n chấm nhóm số n + 1; nhóm cuối chấm nhóm 1. Chấm theo b
 
 **Quyết định của hội đồng:** không đưa ra
 
-**Lý do:** chưa có hồ sơ được chấm.
+**Lý do:** không thực hiện duyệt chéo.
 
 **Câu hỏi chuẩn bị cho đội trình:** Kịch bản nào trong bảng độ nhạy có thể làm đổi đề xuất Gate 2a, và vai trò nào có quyền dừng pilot khi kịch bản đó xảy ra?
 

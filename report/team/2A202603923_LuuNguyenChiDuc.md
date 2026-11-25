@@ -12,7 +12,7 @@
 - Kiểm số nhiệm vụ A và B.
 - Nhiệm vụ D: cỡ mẫu theo ba cách chia và kế hoạch pilot.
 - Nhiệm vụ E: đặc tả chỉ số, event, rủi ro kinh tế và hồ sơ launch v0.
-- Nhiệm vụ C: gắn 20 nhãn và tổng hợp bảng lỗi.
+- Nhiệm vụ C: tổng hợp bảng lỗi (phần gắn nhãn độc lập chưa thực hiện).
 - Tổng hợp báo cáo nhóm và phiếu chấm.
 
 ## 3. Đóng góp cụ thể
@@ -29,6 +29,7 @@
 ## 4. Bằng chứng
 
 - Commit `438292a` (25/11/2026): `src/lab13.py`, `report/team/pilot_plan.yaml`, `report/team/chi_so.md`, `report/team/ho_so_launch_v0.md`.
+- Commit `3301706` (25/11/2026): năm luật dừng trong `pilot_plan.yaml`, bản tổng hợp `bang_loi.md` và cập nhật các báo cáo.
 - D1: 1.251 yêu cầu mỗi nhóm nếu chia theo yêu cầu; 3.103 nếu chia theo nhân viên với m = 75; trần 1.000 (20 nhân viên) và 300 (6 depot); ít nhất 299 yêu cầu mỗi người cho mức chênh 6 điểm.
 - E1: chỉ số chính 82,83% (994/1.200), bỏ qua gợi ý 27,12% (48/177), mở lại trong 7 ngày 4,25% (51/1.200).
 - Rủi ro: làm lại gấp đôi đưa chi phí mỗi việc thành công từ 4.472 đ lên 6.787 đ (simulated).
@@ -46,14 +47,12 @@ Tôi dùng Claude Code (model Claude Sonnet 5.5) làm trợ lý, theo bốn ki�
 
 ## 6. Tự đánh giá
 
-Điều làm tốt:
+Tôi làm phần D và E sau khi Thịnh bàn giao số A–B, và chốt chia pilot theo nhân viên cùng đề xuất Go có điều kiện.
+Tôi chấp nhận đánh đổi mức chênh 6 điểm thay vì 5: nếu tác động thật chỉ là 5 điểm thì power còn 0,64, nên con số này được ghi thẳng trong hồ sơ.
+Ngưỡng dừng được đặt sau khi xem tỉ lệ của đợt chạy thử, để pilot không bị dừng ngay chỉ vì mức hiện tại.
+Gần hạn nộp, bảng lỗi có hai phiên bản khác nhau; tôi giữ bản ghi rõ nguồn nhãn và không báo tỉ lệ đồng thuận chưa đo.
 
-- Chốt phương án pilot kèm đánh đổi nói rõ: chia theo nhân viên giữ được đủ 20 cụm mỗi nhóm, đổi lại chỉ đủ mẫu cho mức chênh 6 điểm.
-- Ngưỡng dừng được đặt sau khi xem tỉ lệ của đợt chạy thử, nên pilot không bị dừng ngay chỉ vì mức hiện tại.
-- Hồ sơ launch nêu cả con số bất lợi và cách xử lý.
+Điều chưa làm được và tôi sẽ làm khác:
 
-Điều chưa làm được và sẽ làm khác:
-
-- Chưa có hai bộ nhãn độc lập nên phần C không đo được đồng thuận; lần sau hai người gắn nhãn tay ngay từ CP3, trước khi xem đáp án.
-- Chưa ghi được kết quả duyệt chéo; lần sau xác định nhóm chấm và gửi hồ sơ đúng mốc.
-- Nhóm chỉ có hai người nên một người giữ nhiều phần; cần chia việc và hẹn giờ bàn giao từ đầu buổi.
+- Phần C không có hai bộ nhãn độc lập; lần sau gắn nhãn tay ngay ở CP3, trước khi mở đáp án.
+- Hai người cùng sửa một file nên bị xung đột khi pull; lần sau chia rõ ai sửa file nào và hẹn giờ bàn giao từ đầu buổi.

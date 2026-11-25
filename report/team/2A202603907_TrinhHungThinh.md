@@ -28,6 +28,7 @@
 ## 5. Công cụ AI đã dùng
 
 Codex hỗ trợ triển khai và kiểm tra A–B theo hướng dẫn trong repo.
+Ở phần C, Codex điền hai cột nhãn nháp từ cùng một bộ nhãn tham khảo, như ghi trong `bang_loi.md`.
 
 Kiểm chứng A–B với Codex: chạy ba phép thử A1 (1,20 · 1,25 · 1,25), sau đó tính lại chi phí theo từng giới hạn chạy từ CSV bằng một phép tính riêng. Kết quả khớp với mã A–B.
 
