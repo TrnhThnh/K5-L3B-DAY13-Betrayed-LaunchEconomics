@@ -25,7 +25,7 @@ Chỉ số trong đợt chạy thử theo phạm vi:
 
 ## Danh sách event
 
-`trace_id` được tạo khi yêu cầu được tạo, cho cả hai nhóm, và nối mọi event với trace của agent.
+`trace_id` được tạo khi yêu cầu được tạo, cho cả hai nhóm, và nối mọi event theo yêu cầu. Mỗi event có thời điểm phát sinh; mỗi lần chạy có thêm run_id để nối trace chi tiết.
 
 | Event | Ai tạo | Thuộc tính chính | Thời điểm |
 | --- | --- | --- | --- |
@@ -39,6 +39,7 @@ Chỉ số trong đợt chạy thử theo phạm vi:
 | `refund_notice_sent` | Dịch vụ thông báo | noi_dung_trang_thai, so_tien, trace_id | Khi gửi tin cho khách |
 | `ticket_closed` | Hệ thống ticket | closed_at, closed_by, phut_xu_ly đo thật, trace_id | Khi đóng, cả hai nhóm |
 | `ticket_reopened` | Hệ thống ticket | reopened_at, ly_do, trace_id | Khi khách mở lại |
+| `refund_amount_reconciled` | Dịch vụ đối soát | so_tien_da_hoan, so_tien_dung, policy_version, ket_qua, trace_id | Mỗi ca hoàn, trước khi khóa dữ liệu tuần |
 | `audit_sample_checked` | Kế toán | so_tien_da_hoan, so_tien_dung, trace_id | Hằng tuần |
 
 **Kiểm tra chéo:** mỗi chỉ số và luật dừng đều tính được từ event.
@@ -47,12 +48,12 @@ Chỉ số trong đợt chạy thử theo phạm vi:
 | --- | --- |
 | Chỉ số chính | `refund_request_created`, `ticket_closed`, `ticket_reopened` |
 | Bỏ qua gợi ý | `staff_review_decision` |
-| Lỗi lọt đến khách, kể cả riêng `hang_nang` | `refund_request_created`, `ticket_reopened` |
+| Lỗi lọt đến khách, kể cả riêng `hang_nang` | `refund_request_created`, `ticket_closed`, `ticket_reopened`. Đếm mỗi yêu cầu một lần trên cohort đủ theo dõi. |
 | Độ sâu | `refund_request_created`, `agent_suggestion_opened` |
 | Hoàn sai tiền | `audit_sample_checked` |
 | Hoàn trùng, báo đã hoàn khi sổ cái không ghi | `refund_ledger_write`, `refund_notice_sent` |
 | Tỉ lệ làm lại | `refund_request_created`, `staff_rework_completed` |
-| Chi phí mỗi việc thành công | `agent_run_completed`, `staff_review_decision`, `staff_rework_completed`, `ticket_closed`, `ticket_reopened`, `audit_sample_checked` |
+| Chi phí mỗi việc thành công | `agent_run_completed`, `staff_review_decision`, `staff_rework_completed`, `ticket_closed`, `ticket_reopened`, `handoff_to_staff`, `refund_amount_reconciled`. Tử số gồm mọi lượt chạy và phút xử lý của trợ lý. Mẫu số gồm các ca trợ lý đóng, không chuyển nhân viên, không mở lại trong 7 ngày và đúng tiền. |
 | Chi phí nhân viên tự làm (thay giả định 6 phút) | `ticket_closed.phut_xu_ly` của nhóm đối chứng |
 | Ca chuyển nhân viên | `handoff_to_staff`, `ticket_closed.phut_xu_ly` |
 
@@ -63,5 +64,5 @@ Mức gốc: 4.472 đ/việc thành công trên toàn mẫu, 3.414 đ trong ph�
 | Rủi ro | Tác động đã tính | Dấu hiệu theo dõi | Hành động | Người phụ trách |
 | --- | --- | --- | --- | --- |
 | Số ca làm lại tăng gấp đôi | +51,8%, lên 6.787 đ; trong phạm vi lên 5.147 đ (simulated) | Làm lại 7 ngày > 7% (đợt chạy thử trong phạm vi 4,89%) | Giữ mức xem lại, rà 20 trace làm lại; loại còn trên 7% ngày 21/12 rút khỏi pilot | PM trợ lý hoàn phí |
-| Xem lại gấp đôi, hoặc phải xem lại 100% kéo dài | Gấp đôi: +40,7%, lên 6.292 đ. Xem lại 100%: 11.743 đ = 0,98×, hoặc 12.414 đ = 1,03× nếu làm lại 15,3 phút (simulated) | Trên 50% yêu cầu còn được xem lại vào ngày 21/12; phút mỗi lượt xem lại > 5,1 (ngưỡng hoà vốn, simulated) | Không mở rộng; đo lý do sửa và bỏ, rút ngắn thao tác xem lại | Trưởng nhóm CSKH |
+| Xem lại gấp đôi, hoặc phải xem lại 100% kéo dài | Gấp đôi: +40,7%, lên 6.292 đ. Xem lại 100%: 11.743 đ = 0,98×, hoặc 12.414,50 đ = 1,03× nếu làm lại 15,3 phút (simulated) | Trên 50% yêu cầu còn được xem lại vào ngày 21/12; phút mỗi lượt xem lại > 5,1 (ngưỡng hoà vốn, simulated) | Không mở rộng; đo lý do sửa và bỏ, rút ngắn thao tác xem lại | Trưởng nhóm CSKH |
 | Khối lượng thấp làm chi phí cố định 40 triệu đ/tháng nặng hơn | Cố định mỗi việc: 1.185 đ ở 45.000 yêu cầu/tháng, 2.370 đ ở một nửa, 11.852 đ ở bước 0,10 (simulated) | Việc thành công theo tuần dưới 50% kế hoạch; khối lượng dưới 6.212 yêu cầu/tháng (simulated) | Không kéo dài bước 0,10; xem lại hợp đồng chi phí cố định trước khi mở rộng | Giám đốc vận hành LogiX-VN |

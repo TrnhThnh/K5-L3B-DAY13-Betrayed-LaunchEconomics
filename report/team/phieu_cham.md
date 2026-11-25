@@ -2,8 +2,8 @@
 
 Nhóm số n chấm nhóm số n + 1; nhóm cuối chấm nhóm 1. Chấm theo bằng chứng trong hồ sơ, không theo cách trình bày: một đề xuất No-go có lý do bằng số được điểm cao hơn một đề xuất Go bỏ qua con số bất lợi.
 
-- Nhóm chấm (hội đồng): ...
-- Nhóm được chấm: ...
+- Nhóm chấm (hội đồng): Betrayed, L3B
+- Nhóm được chấm: Chờ hồ sơ Gate 2a của nhóm được phân công
 
 | Tiêu chí | 0 điểm | 5 điểm | 10 điểm | Điểm | Lý do (có số) |
 | --- | --- | --- | --- | ---: | --- |
@@ -12,10 +12,10 @@ Nhóm số n chấm nhóm số n + 1; nhóm cuối chấm nhóm 1. Chấm theo b
 | Pilot ra được quyết định | Không đối chứng hoặc thiếu cỡ mẫu | Đủ cỡ mẫu, luật dừng chung chung | Tách được tác động, đủ mẫu, luật dừng có ngưỡng, thời hạn, người có quyền dừng | ... | ... |
 | **Tổng** | | | | **... / 30** | |
 
-**Quyết định của hội đồng:** Go · Go có điều kiện · No-go (giữ một)
+**Quyết định của hội đồng:** Chờ phiên duyệt chéo
 
 **Lý do:** ...
 
-**Một câu hỏi cho đội trình:** ...
+**Câu hỏi chuẩn bị cho đội trình:** Kịch bản nào trong bảng độ nhạy có thể làm đổi đề xuất Gate 2a, và vai trò nào có quyền dừng pilot khi kịch bản đó xảy ra?
 
 **Câu trả lời của đội trình (ghi lại tại buổi):** ...

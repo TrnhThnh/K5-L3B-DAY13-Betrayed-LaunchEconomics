@@ -29,8 +29,9 @@
 
 Codex hỗ trợ triển khai và kiểm tra A–B theo hướng dẫn trong repo.
 
-Cách tự kiểm tra: ...
+Kiểm chứng A–B với Codex: chạy ba phép thử A1 (1,20 · 1,25 · 1,25), sau đó tính lại chi phí theo từng giới hạn chạy từ CSV bằng một phép tính riêng. Kết quả khớp với mã A–B.
 
 ## 6. Tự đánh giá
 
-...
+- Kết quả A–B tái lập được từ hai file CSV. Dùng chi phí cả hệ thống khi chọn giới hạn chạy vì giới hạn một lần để lại thêm 85 ca cho nhân viên so với hai lần.
+- Phần C đã có nhãn tham khảo và đề xuất khắc phục. Độ đồng thuận cần được xác nhận từ hai bộ nhãn độc lập.

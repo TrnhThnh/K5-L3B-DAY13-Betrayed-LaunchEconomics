@@ -20,9 +20,9 @@ Số của nhiệm vụ trước được dùng lại cho nhiệm vụ sau: chi 
 | --- | --- | --- |
 | A · Mô hình chi phí | Qua ba phép thử đáp án biết trước, rồi cộng chi phí mọi lần chạy và chỉ chia cho yêu cầu thành công; tách theo loại và cộng chi phí cố định | [bang_chi_phi.md](bang_chi_phi.md) |
 | B · Độ nhạy | Đổi từng yếu tố và một cặp; tính chi phí cả hệ thống theo giới hạn chạy và kịch bản xem lại 100% | [bang_chi_phi.md](bang_chi_phi.md) |
-| C · Bảng lỗi | Chưa hoàn tất tại thời điểm viết: chờ hai bộ nhãn độc lập | [bang_loi.md](bang_loi.md) |
+| C · Bảng lỗi | Có 20 nhãn tham khảo và bảng khắc phục 5 loại; chờ hai bộ nhãn độc lập để tính đồng thuận | [bang_loi.md](bang_loi.md) |
 | D · Pilot | Tính năm cỡ mẫu trước khi chọn chia theo nhân viên; đặt ngưỡng dừng sau khi xem tỉ lệ của đợt chạy thử | [pilot_plan.yaml](pilot_plan.yaml) |
-| E · Chỉ số và hồ sơ | Tính thử ba chỉ số, đặc tả 11 event có `trace_id`, ba dòng rủi ro và hồ sơ launch bảy mục | [chi_so.md](chi_so.md), [ho_so_launch_v0.md](ho_so_launch_v0.md) |
+| E · Chỉ số và hồ sơ | Tính thử ba chỉ số, đặc tả 12 event có `trace_id`, ba dòng rủi ro và hồ sơ launch bảy mục | [chi_so.md](chi_so.md), [ho_so_launch_v0.md](ho_so_launch_v0.md) |
 
 ## 4. Kết quả
 
@@ -32,9 +32,9 @@ Số của nhiệm vụ trước được dùng lại cho nhiệm vụ sau: chi 
 | Yếu tố nhạy nhất | Số ca làm lại gấp đôi: +51,8% (simulated); giá token gấp đôi chỉ +5,6% (simulated) |
 | So với nhân viên tự làm | Cả hệ thống 5.865 đ/yêu cầu = 0,49× 12.000 đ, chưa gồm cố định (simulated) |
 | Giới hạn chạy lại | 2 lần rẻ nhất cho công ty (6.901.220 đ); 1 lần có chi phí mỗi việc thành công thấp nhất (4.111 đ) (simulated) |
-| Xem lại 100% trong phạm vi | 11.743 đ = 0,98×, hoặc 12.414 đ = 1,03× nếu làm lại 15,3 phút (simulated) |
+| Xem lại 100% trong phạm vi | 11.743 đ = 0,98×, hoặc 12.414,50 đ = 1,03× nếu làm lại 15,3 phút (simulated) |
 | Chỉ số trong đợt chạy thử | Chính 82,83%; bỏ qua gợi ý 27,12%; mở lại trong 7 ngày 4,25% |
-| Pilot | `noi_dia` và `hang_nang`, 20 + 20 nhân viên, 859 yêu cầu mỗi nhóm, mức chênh 6 điểm, quyết định 12/01/2027 |
+| Pilot | `noi_dia` và `hang_nang`, 20 + 20 nhân viên, 859 yêu cầu hiệu dụng mỗi nhóm, mức chênh 6 điểm, quyết định 12/01/2027 |
 
 **Đề xuất:** Go có điều kiện, với năm điều kiện có người phụ trách và ngày kiểm tra trong [hồ sơ launch v0](ho_so_launch_v0.md).
 
@@ -49,7 +49,7 @@ Số của nhiệm vụ trước được dùng lại cho nhiệm vụ sau: chi 
 | Lệnh kiểm tra YAML trong `CHECKPOINTS.md` báo `UnicodeDecodeError` trên Windows | Mở file với `encoding='utf-8'` |
 | Với 40 nhân viên, không cách chia theo cụm nào đủ mẫu cho mức chênh 5 điểm | Chia theo nhân viên, chấp nhận mức chênh 6 điểm và ghi rõ power 0,64 ở 5 điểm |
 | `hang_nang` kém hơn hẳn mức trung bình trong phạm vi: làm lại 11,39%, xem lại 100% bằng 1,22× (simulated) | Thêm cổng ngày 21/12: loại còn làm lại trên 7% rút khỏi pilot; chỉ còn `noi_dia` vẫn đủ mẫu |
-| Chỉ số chính trong phạm vi đã là 92,26%, xa mức nền cho sẵn 70% | Đo mức nền ở nhóm đối chứng tuần 1; từ 94% trở lên thì dừng tại cổng |
+| Chỉ số chính trong phạm vi đã là 92,26%, xa mức nền cho sẵn 70% | Đo mức nền ở đối chứng tuần 1 và tính lại power tại cổng trước khi đo chính thức |
 
 ## 6. Tổng hợp đóng góp
 
