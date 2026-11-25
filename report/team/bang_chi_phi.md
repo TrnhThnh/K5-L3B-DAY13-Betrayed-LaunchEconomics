@@ -37,7 +37,8 @@ Tái lập số liệu bằng `python lab13.py` trong thư mục `src/`. Giá t�
 | quoc_te | 150 | 27,3% | 2,32 | 22.515 đ | 1,88× |
 | doi_tac | 68 | 54,4% | 1,88 | 10.215 đ | 0,85× |
 
-- Loại `quoc_te` tốn 22.515 đ/việc thành công (simulated), với 2,32 lượt chạy/yêu cầu mà chỉ thành công 27,3%. Tỉ lệ chạy `ok` lần 1, 2, 3 lần lượt là 30,0%, 11,4%, 2,2%, nên các lần chạy lại có hiệu quả thấp.
+- `quoc_te` không đáng để trợ lý xử lý: 22.515 đ/việc thành công, bằng 1,88× mức 12.000 đ (simulated), với 2,32 lượt chạy/yêu cầu mà chỉ thành công 27,3%.
+  Chạy lại tới 3 lần không giúp: tỉ lệ chạy `ok` lần 1, 2, 3 lần lượt là 30,0%, 11,4%, 2,2%.
 
 ## A4 · Chi phí cố định cho phạm vi nội địa và hàng nặng
 
