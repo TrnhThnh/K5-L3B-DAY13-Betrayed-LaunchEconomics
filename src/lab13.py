@@ -1,10 +1,15 @@
 """Lab 13 · Định giá agent và lập kế hoạch pilot (Gate 2a).
 
 Chạy trong src/ bằng python lab13.py. Hai file CSV là dữ liệu giả lập.
-Mô hình A–B dựa trên docs/Lab13_Huong_dan_chi_tiet_buoi_chieu.md.
+Mô hình A–B, D1 và E1 dựa trên docs/Lab13_Huong_dan_chi_tiet_buoi_chieu.md.
 """
 import math
+import sys
+from statistics import NormalDist
+
 import pandas as pd
+from statsmodels.stats.power import NormalIndPower
+from statsmodels.stats.proportion import proportion_effectsize
 
 # Bảng giá GIẢ ĐỊNH của lab (không phải giá thật của nhà cung cấp nào)
 GIA_VAO = 26        # đồng cho 1.000 token đầu vào
@@ -15,6 +20,16 @@ BASELINE = 12000    # đồng cho 1 yêu cầu khi nhân viên tự làm (6 phú
 CHI_PHI_CO_DINH = 40_000_000
 KHOI_LUONG_THANG = 45_000
 PHAM_VI = ('noi_dia', 'hang_nang')
+
+# Số cho sẵn ở nhiệm vụ D
+P_GOC = 0.70            # chỉ số chính khi chỉ có nhân viên
+ALPHA = 0.05
+POWER = 0.80
+ICC = 0.02
+NHAN_VIEN = 40
+CUM_MOI_NHOM = 20       # 20 nhân viên dùng trợ lý, 20 đối chứng
+YEU_CAU_NGAY = 1_500
+NGAY_DO = 14            # cửa sổ đo chỉ số chính ở bước rollout 0.50
 
 
 # ---------- Nhiệm vụ A1 · Kinh tế của việc chạy lại ----------
@@ -169,13 +184,129 @@ def in_nhiem_vu_b(runs, reqs, goc):
               f'{cps / BASELINE:.2f}x | Xem lại hòa vốn {phut_hoa_von:.2f} phút [simulated]')
 
 
+# ---------- Nhiệm vụ D1 · Cỡ mẫu theo cách chia ----------
+def co_mau(p1, p2, alpha=ALPHA, power=POWER):
+    """Cỡ mẫu mỗi nhóm khi so hai tỉ lệ (công thức 4 trong docs/du_lieu_va_cong_thuc.md)."""
+    z_alpha = NormalDist().inv_cdf(1 - alpha / 2)
+    z_power = NormalDist().inv_cdf(power)
+    p_tb = (p1 + p2) / 2
+    tu = (z_alpha * math.sqrt(2 * p_tb * (1 - p_tb))
+          + z_power * math.sqrt(p1 * (1 - p1) + p2 * (1 - p2)))
+    return math.ceil((tu / (p2 - p1)) ** 2)
+
+
+def he_so_thiet_ke(m, icc=ICC):
+    """Hệ số thiết kế khi mỗi cụm có m yêu cầu."""
+    return 1 + (m - 1) * icc
+
+
+def in_nhiem_vu_d(runs, reqs):
+    n5 = co_mau(P_GOC, P_GOC + 0.05)
+    n6 = co_mau(P_GOC, P_GOC + 0.06)
+    de75 = he_so_thiet_ke(75)
+    n_theo_nv = math.ceil(n5 * de75)
+    nv_moi_nhom = math.ceil(n_theo_nv / 75)
+    m_toi_thieu = math.ceil(n6 * (1 - ICC) / (CUM_MOI_NHOM - n6 * ICC))
+    print('\nD1 | Cỡ mẫu mỗi nhóm')
+    print(f'a) Theo yêu cầu, +5 điểm: {n5:,}')
+    print(f'b) Theo nhân viên, m = 75: DE {de75:.2f}, cần {n_theo_nv:,} yêu cầu, '
+          f'{nv_moi_nhom} người mỗi nhóm, tổng {2 * nv_moi_nhom} / {NHAN_VIEN}')
+    print(f'c) {CUM_MOI_NHOM} nhân viên mỗi nhóm: cỡ mẫu hiệu dụng tối đa {CUM_MOI_NHOM / ICC:,.0f}')
+    print(f'd) 6 depot mỗi nhóm: cỡ mẫu hiệu dụng tối đa {6 / ICC:,.0f}')
+    print(f'e) +6 điểm cần {n6:,}; 20 người mỗi nhóm cần ít nhất {m_toi_thieu} yêu cầu/người, '
+          f'DE {he_so_thiet_ke(m_toi_thieu):.2f}')
+
+    do_lon_5 = proportion_effectsize(P_GOC + 0.05, P_GOC)
+    n_sm = NormalIndPower().solve_power(effect_size=do_lon_5, alpha=ALPHA, power=POWER, ratio=1)
+    cong_suat = NormalIndPower().power(do_lon_5, nobs1=n6, alpha=ALPHA, ratio=1)
+    print(f'Đối chiếu statsmodels cho câu a: {n_sm:,.1f}')
+    print(f'Power khi tác động thật chỉ +5 điểm, n = {n6}: {cong_suat:.2f}')
+
+    trong_pham_vi = reqs[reqs['loai'].isin(PHAM_VI)]
+    yc_moi_nguoi_ngay = YEU_CAU_NGAY * len(trong_pham_vi) / len(reqs) / NHAN_VIEN
+    m_do = yc_moi_nguoi_ngay * NGAY_DO
+    print(f'Trong phạm vi: {yc_moi_nguoi_ngay:.1f} yêu cầu/người/ngày; '
+          f'đủ {m_toi_thieu} sau {m_toi_thieu / yc_moi_nguoi_ngay:.1f} ngày')
+    print(f'Đo {NGAY_DO} ngày: m = {m_do:.0f}, '
+          f'cỡ mẫu hiệu dụng {CUM_MOI_NHOM * m_do / he_so_thiet_ke(m_do):,.0f}')
+    m_noi_dia = YEU_CAU_NGAY * reqs['loai'].eq('noi_dia').mean() / NHAN_VIEN * NGAY_DO
+    print(f'Nếu phải bỏ hang_nang: đo {NGAY_DO} ngày được m = {m_noi_dia:.0f}, '
+          f'cỡ mẫu hiệu dụng {CUM_MOI_NHOM * m_noi_dia / he_so_thiet_ke(m_noi_dia):,.0f}')
+
+    ti_le_thanh_cong_pv = trong_pham_vi['ket_qua'].eq('thanh_cong').mean()
+    cps = mo_hinh(runs, trong_pham_vi)['cps']
+    print('Rollout | Người dùng | Cố định/việc | CPS + cố định [simulated]')
+    for ti_le in (0.10, 0.25, 0.50):
+        so_nguoi = round(NHAN_VIEN * ti_le)
+        thanh_cong_thang = so_nguoi * yc_moi_nguoi_ngay * 30 * ti_le_thanh_cong_pv
+        co_dinh = CHI_PHI_CO_DINH / thanh_cong_thang
+        print(f'{ti_le:.2f} | {so_nguoi:2} | {co_dinh:,.0f} | {cps + co_dinh:,.0f}')
+
+
+# ---------- Nhiệm vụ E1 · Chỉ số và số làm căn cứ cho luật dừng ----------
+def chi_so(reqs):
+    """Chỉ số tính thử trên một tập yêu cầu; mỗi giá trị là (tử số, mẫu số)."""
+    chinh = reqs['dong_trong_24h'].eq(1) & reqs['mo_lai_trong_7_ngay'].eq(0)
+    xem = reqs[reqs['duoc_xem_lai'].eq(1)]
+    return {
+        'Chính: đóng trong 24 giờ, không mở lại': (chinh.sum(), len(reqs)),
+        'Dùng: bỏ qua gợi ý (sua + bo)': (xem['quyet_dinh_xem_lai'].isin(['sua', 'bo']).sum(), len(xem)),
+        'An toàn: mở lại trong 7 ngày': (reqs['mo_lai_trong_7_ngay'].eq(1).sum(), len(reqs)),
+        'Tỉ lệ được xem lại': (len(xem), len(reqs)),
+        'Tỉ lệ làm lại': (reqs['ket_qua'].eq('lam_lai').sum(), len(reqs)),
+    }
+
+
+def cps_xem_lai_toan_bo(runs, nhom, phut_xem_lai=5, phut_lam_lai=9):
+    """Chi phí mỗi việc thành công khi mọi câu trả lời chạy ok đều được xem lại (giả định B4)."""
+    chi_phi = mo_hinh(runs, nhom)
+    cua_nhom = runs['request_id'].isin(nhom['request_id'])
+    so_ca_xem = runs.loc[cua_nhom & runs['status'].eq('ok'), 'request_id'].nunique()
+    so_ca_lam_lai = nhom['ket_qua'].eq('lam_lai').sum()
+    phut = so_ca_xem * phut_xem_lai + so_ca_lam_lai * phut_lam_lai
+    return (chi_phi['token'] + chi_phi['tool'] + phut * LUONG_PHUT) / chi_phi['thanh_cong']
+
+
+def in_nhiem_vu_e(runs, reqs):
+    trong_pham_vi = reqs[reqs['loai'].isin(PHAM_VI)]
+    nhom_can_tinh = [('Toàn mẫu', reqs), ('Trong phạm vi', trong_pham_vi)]
+    nhom_can_tinh += [(loai, reqs[reqs['loai'].eq(loai)]) for loai in PHAM_VI]
+    for ten_nhom, nhom in nhom_can_tinh:
+        print(f'\nE1 | {ten_nhom}')
+        for ten, (tu, mau) in chi_so(nhom).items():
+            print(f'{ten:40s} {tu:>4}/{mau:<5} = {tu / mau:.2%}')
+
+    goc = mo_hinh(runs, trong_pham_vi)
+    print(f'\nPhút toàn mẫu [simulated]: xem lại {reqs["phut_xem_lai_simulated"].sum():,.0f} | '
+          f'làm lại {reqs["phut_lam_lai_simulated"].sum():,.0f}')
+    print('\nE2 | Trong phạm vi, chi phí mỗi việc thành công [simulated]')
+    print(f'Gốc {goc["cps"]:,.0f} | Làm lại gấp đôi {mo_hinh(runs, trong_pham_vi, he_so_lam_lai=2)["cps"]:,.0f} '
+          f'| Xem lại gấp đôi {mo_hinh(runs, trong_pham_vi, he_so_xem_lai=2)["cps"]:,.0f}')
+    he_thong = (goc['tong'] + BASELINE * (len(trong_pham_vi) - goc['thanh_cong'])) / len(trong_pham_vi)
+    print(f'Cả hệ thống/yêu cầu trong phạm vi: {he_thong:,.0f} = {he_thong / BASELINE:.2f}x')
+    for loai in PHAM_VI:
+        cps = cps_xem_lai_toan_bo(runs, reqs[reqs['loai'].eq(loai)])
+        print(f'Xem lại 100%, làm lại 9 phút, {loai}: {cps:,.0f} = {cps / BASELINE:.2f}x')
+
+    for khoi_luong in (KHOI_LUONG_THANG, KHOI_LUONG_THANG // 2):
+        co_dinh_yc = CHI_PHI_CO_DINH / (khoi_luong * len(trong_pham_vi) / len(reqs))
+        tong_yc = he_thong + co_dinh_yc
+        print(f'Cả hệ thống + cố định, {khoi_luong:,} yêu cầu/tháng: {tong_yc:,.0f} = {tong_yc / BASELINE:.2f}x')
+
+    # Bước rollout đầu: 10% nhân viên và xem lại 100%.
+    thanh_cong_thang = 0.10 * YEU_CAU_NGAY * 30 * goc['thanh_cong'] / len(reqs)
+    tuan_dau = cps_xem_lai_toan_bo(runs, trong_pham_vi) + CHI_PHI_CO_DINH / thanh_cong_thang
+    print(f'Bước 0,10 (xem lại 100% + cố định): {tuan_dau:,.0f} = {tuan_dau / BASELINE:.2f}x')
+
+
 if __name__ == '__main__':
+    # Windows in ra file hoặc pipe bằng cp1252, không viết được tiếng Việt.
+    sys.stdout.reconfigure(encoding='utf-8')
     runs = pd.read_csv('logix_runs.csv')
     reqs = pd.read_csv('logix_requests.csv', keep_default_na=False)
     kiem_tra_dap_an_biet_truoc()
     goc = mo_hinh(runs, reqs)
     in_nhiem_vu_a(runs, reqs, goc)
     in_nhiem_vu_b(runs, reqs, goc)
-    # TODO CP4 · Nhiệm vụ D: cỡ mẫu.
-    #   from statsmodels.stats.proportion import proportion_effectsize
-    #   from statsmodels.stats.power import NormalIndPower
+    in_nhiem_vu_d(runs, reqs)
+    in_nhiem_vu_e(runs, reqs)
