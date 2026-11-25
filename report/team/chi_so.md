@@ -30,7 +30,7 @@ Chỉ số trong đợt chạy thử theo phạm vi:
 | Event | Ai tạo | Thuộc tính chính | Thời điểm |
 | --- | --- | --- | --- |
 | `refund_request_created` | App khách | request_id, loai, so_tien, depot, staff_id, arm, trace_id | Khi khách gửi |
-| `agent_run_completed` | Agent | attempt, tokens_in, tokens_out, tool_calls, status, trace_id | Sau mỗi lần chạy, kể cả lỗi |
+| `agent_run_completed` | Agent | run_id, attempt, tokens_in, tokens_out, tool_calls, status, trace_id | Sau mỗi lần chạy, kể cả lỗi |
 | `agent_suggestion_opened` | Giao diện nhân viên | staff_id, so_tien_de_xuat, trace_id | Khi nhân viên mở gợi ý |
 | `staff_review_decision` | Giao diện nhân viên | quyet_dinh (giu, sua, bo), phut_xem_lai đo thật, trace_id | Khi bấm gửi, sửa hoặc bỏ |
 | `staff_rework_completed` | Giao diện nhân viên | phut_lam_lai đo thật, ly_do, trace_id | Khi làm lại xong |
@@ -48,7 +48,7 @@ Chỉ số trong đợt chạy thử theo phạm vi:
 | --- | --- |
 | Chỉ số chính | `refund_request_created`, `ticket_closed`, `ticket_reopened` |
 | Bỏ qua gợi ý | `staff_review_decision` |
-| Lỗi lọt đến khách, kể cả riêng `hang_nang` | `refund_request_created`, `ticket_closed`, `ticket_reopened`. Đếm mỗi yêu cầu một lần trên cohort đủ theo dõi. |
+| Lỗi lọt đến khách, kể cả riêng `hang_nang` | `refund_request_created`, `ticket_closed`, `ticket_reopened`. Đếm mỗi yêu cầu một lần trên cohort đủ theo dõi; luật dừng an toàn còn xem hằng ngày số ca mở lại đã quan sát. |
 | Độ sâu | `refund_request_created`, `agent_suggestion_opened` |
 | Hoàn sai tiền | `audit_sample_checked` |
 | Hoàn trùng, báo đã hoàn khi sổ cái không ghi | `refund_ledger_write`, `refund_notice_sent` |

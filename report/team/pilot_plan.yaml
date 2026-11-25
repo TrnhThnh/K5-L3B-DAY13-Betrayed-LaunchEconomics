@@ -39,7 +39,7 @@ pilot:
   schedule:
     - "0.10: 07/12-13/12/2026, 4 người dùng trợ lý, xem lại 100%"
     - "0.25: 14/12-20/12/2026, 10 người, xem lại 50% cho loại có làm lại 7 ngày không quá 7%, loại khác giữ 100%"
-    - "0.50: 21/12/2026-03/01/2027, 20 người; rút loại có làm lại 7 ngày trên 7% khỏi cả hai nhóm trước khi đo; khóa phạm vi và tỷ lệ xem lại khi bắt đầu đo"
+    - "0.50: 21/12/2026-03/01/2027, 20 người; rút loại có làm lại 7 ngày trên 7% khỏi cả hai nhóm trước khi đo; xem lại theo mức đợt chạy thử (khoảng 15%); khóa phạm vi và tỷ lệ xem lại khi bắt đầu đo"
   primary_metric:
     name: dong_trong_24h_khong_mo_lai_7_ngay
     baseline: 0.70
@@ -54,13 +54,13 @@ pilot:
     concurrent_control: "20 nhân viên đối chứng làm quy trình cũ cùng tuần, cùng depot; chỉ so yêu cầu nhận từ 21/12/2026 đến 03/01/2027, phân tích theo cụm nhân viên"
     spillover_risk: "Trung bình: nhân viên cùng depot có thể chia sẻ câu trả lời; mở trợ lý theo quyền tài khoản, log lượt mở theo staff_id, không chuyển tiếp gợi ý; tràn tác động làm chênh lệch đo được nhỏ đi"
     predeclared: "Chốt trước 07/12/2026: chỉ số chính, luật dừng và ngày quyết định. Phân tích theo nhóm bốc thăm kể cả ca chuyển nhân viên, điều chỉnh theo depot và dùng sai số chuẩn theo cụm nhân viên. Mở rộng chỉ khi chênh lệch đạt ít nhất 5 điểm và có ý nghĩa hai phía ở alpha 0,05, đủ cỡ mẫu hiệu dụng, không luật an toàn nào bị kích và chi phí mỗi việc thành công gồm cố định dưới 12.000 đ. Ngày 21/12 tính lại power từ cohort đối chứng tuần 1 đã đủ theo dõi trong phạm vi đã chọn; hoãn bước đo nếu nền từ 94% hoặc power dự kiến dưới 80% cho mức tăng 6 điểm"
-  monitoring_cohort: "Tính tỷ lệ mở lại trên cửa sổ 7 ngày nhận yêu cầu đã đủ theo dõi, từ 7 ngày sau khi đóng; ca chưa đóng được theo dõi tới khi có thể xác định kết quả. Nếu phải rút một loại sau khi bắt đầu đo, dừng phân tích xác nhận và đưa kế hoạch qua Gate 2a lại. Chỉ khóa dữ liệu sau khi đủ theo dõi; thiếu dữ liệu thì chưa quyết định mở rộng."
+  monitoring_cohort: "Hai luật an toàn về mở lại được tính hằng ngày trên số ca mở lại đã quan sát của yêu cầu đóng trong 7 ngày gần nhất; đây là cận dưới nên vượt ngưỡng là áp luật ngay. Phân tích và xét cổng tính tỷ lệ mở lại trên cửa sổ 7 ngày nhận yêu cầu đã đủ theo dõi, từ 7 ngày sau khi đóng; ca chưa đóng được theo dõi tới khi có thể xác định kết quả. Nếu phải rút một loại sau khi bắt đầu đo, dừng phân tích xác nhận và đưa kế hoạch qua Gate 2a lại. Chỉ khóa dữ liệu sau khi đủ theo dõi; thiếu dữ liệu thì chưa quyết định mở rộng."
   stop_rules:
-    - "NẾU đối soát sổ cái thấy từ 1 ca hoàn trùng hoặc 1 tin 'đã hoàn' không có bản ghi sổ cái TRONG bất kỳ kỳ đối soát 1 giờ nào THÌ Kỹ sư trưởng agent tắt trợ lý trong 30 phút, chuyển toàn bộ cho nhân viên và chỉ bật lại sau khi Giám đốc vận hành duyệt bản sửa KHÔNG THÌ giữ bước hiện tại và tiếp tục đối soát"
-    - "NẾU tỉ lệ mở lại 7 ngày của nhóm trợ lý cao hơn đối chứng từ 2 điểm trở lên hoặc vượt 6% TRONG 3 ngày liên tiếp (cửa sổ trượt 7 ngày) THÌ Giám đốc vận hành tắt trợ lý trong 30 phút KHÔNG THÌ theo dõi ở bước hiện tại và chỉ xét mở rộng tại cổng tiếp theo"
-    - "NẾU tỉ lệ mở lại 7 ngày riêng hang_nang của nhóm trợ lý vượt 12% TRONG 3 ngày liên tiếp (cửa sổ trượt 7 ngày) THÌ PM trợ lý hoàn phí rút hang_nang khỏi cả hai nhóm trong 1 ngày KHÔNG THÌ giữ phạm vi đang chạy và tiếp tục theo dõi theo loại"
-    - "NẾU chi phí mỗi việc thành công chưa gồm cố định, đo bằng phút thật, vượt 8.000 đ TRONG cửa sổ 7 ngày của cohort bước 0.50 đã đủ theo dõi THÌ PM trợ lý hoàn phí đóng băng phạm vi và rà bảng độ nhạy trong 2 ngày làm việc; giữ mức xem lại trong lúc rà KHÔNG THÌ giữ lịch đã duyệt và tiếp tục đo"
-    - "NẾU tỉ lệ bỏ qua gợi ý (sửa hoặc bỏ) vượt 40% TRONG 7 ngày liên tiếp THÌ Trưởng nhóm CSKH giữ rollout ở bước hiện tại và phỏng vấn 5 nhân viên trong 3 ngày KHÔNG THÌ tiếp tục theo dõi và chỉ tăng rollout tại cổng đã định"
+    - "NẾU đối soát sổ cái thấy từ 1 ca hoàn trùng hoặc 1 tin 'đã hoàn' không có bản ghi sổ cái TRONG bất kỳ kỳ đối soát 1 giờ nào THÌ Kỹ sư trưởng agent tắt trợ lý trong 30 phút, chuyển toàn bộ cho nhân viên KHÔNG THÌ không được bật lại trước khi Giám đốc vận hành duyệt bản sửa, không được mở bước rollout tiếp"
+    - "NẾU tỉ lệ mở lại 7 ngày của nhóm trợ lý cao hơn đối chứng từ 2 điểm trở lên hoặc vượt 6% TRONG 3 ngày liên tiếp (cửa sổ trượt 7 ngày) THÌ Giám đốc vận hành tắt trợ lý trong 30 phút KHÔNG THÌ không được mở bước rollout tiếp"
+    - "NẾU tỉ lệ mở lại 7 ngày riêng hang_nang của nhóm trợ lý vượt 12% TRONG 3 ngày liên tiếp (cửa sổ trượt 7 ngày) THÌ PM trợ lý hoàn phí rút hang_nang khỏi cả hai nhóm trong 1 ngày KHÔNG THÌ không được đưa hang_nang trở lại trong đợt pilot này"
+    - "NẾU chi phí mỗi việc thành công chưa gồm cố định, đo bằng phút thật, vượt 8.000 đ TRONG cửa sổ 7 ngày của cohort bước 0.50 đã đủ theo dõi THÌ PM trợ lý hoàn phí đóng băng phạm vi và rà bảng độ nhạy trong 2 ngày làm việc KHÔNG THÌ không được giảm tỉ lệ xem lại để kéo chi phí xuống"
+    - "NẾU tỉ lệ bỏ qua gợi ý (sửa hoặc bỏ) vượt 40% TRONG 7 ngày liên tiếp THÌ Trưởng nhóm CSKH phỏng vấn 5 nhân viên trong 3 ngày KHÔNG THÌ không được mở bước rollout tiếp"
   interim_looks: "chỉ kiểm tra chỉ số an toàn và ngưỡng của luật dừng; không so chỉ số chính giữa hai nhóm trước ngày quyết định"
   rollback: "Người ra lệnh ở luật dừng bấm cờ tắt, hiệu lực trong 30 phút; khách được phục vụ bằng luồng nhân viên tự làm (6 phút mỗi yêu cầu); lệnh hoàn đã gửi được đối soát sổ cái trong 24 giờ"
   decision_date: "2027-01-12"

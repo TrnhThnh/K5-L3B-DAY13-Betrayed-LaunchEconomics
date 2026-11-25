@@ -24,6 +24,7 @@
 - Hoàn thành phần tính D1 và E1 trong `src/lab13.py`, `pilot_plan.yaml`, `chi_so.md` và `ho_so_launch_v0.md`.
 - Sửa lỗi in tiếng Việt khi chuyển hướng output trên Windows.
 - Bổ sung kết luận A3 trong `bang_chi_phi.md`; hoàn thiện `TEAM.md` và báo cáo nhóm.
+- Tổng hợp `bang_loi.md` (nhãn nhóm nhận dùng, quy tắc cho ca dễ lẫn, ghi rõ nguồn nhãn) và chỉnh lại mẫu năm luật dừng.
 
 ## 4. Bằng chứng
 
@@ -38,8 +39,8 @@ Tôi dùng Claude Code (model Claude Sonnet 5.5) làm trợ lý, theo bốn ki�
 
 | Kiểu việc | AI làm gì | Cách kiểm tra |
 | --- | --- | --- |
-| Soạn thảo | Soạn phần tính D1 và E1 trong `lab13.py`, `pilot_plan.yaml`, `chi_so.md`, hồ sơ launch, báo cáo, nhãn người 2 và bảng khắc phục | Tôi chốt cách chia pilot và đề xuất trước khi soạn phần D, E; tôi tự commit và push |
-| Phản biện | Chỉ ra điểm yếu của kế hoạch và bài nhóm: `hang_nang` kém hơn mức trung bình, mức nền 92,26% xa 70%, bước 0,10 tốn 1,97× (simulated), kết luận A3 còn thiếu | Các con số làm căn cứ đều in ra từ `lab13.py`, nên chạy lại được |
+| Soạn thảo | Soạn phần tính D1 và E1 trong `lab13.py`, `pilot_plan.yaml`, `chi_so.md`, hồ sơ launch, báo cáo và bản tổng hợp bảng lỗi | Tôi chốt cách chia pilot và đề xuất trước khi soạn phần D, E; tôi tự commit và push |
+| Phản biện | Chỉ ra điểm yếu của kế hoạch và bài nhóm: `hang_nang` kém hơn mức trung bình, mức nền 92,26% xa 70%, bước 0,10 tốn 1,97× (simulated), kết luận A3 còn thiếu, mệnh đề KHÔNG THÌ chưa nêu việc bị cấm | Các con số làm căn cứ đều in ra từ `lab13.py`, nên chạy lại được |
 | Tra cứu | Đọc đề, rubric, hướng dẫn và slide về cỡ mẫu và luật dừng | Công thức cỡ mẫu theo `docs/du_lieu_va_cong_thuc.md`; statsmodels cho 1.249,6, khớp 1.251 trong sai số 2% |
 | Kiểm tra | Chạy `lab13.py` trên máy tôi, đối chiếu số A–B với hướng dẫn, kiểm tự động YAML, từ bị cấm và nguồn của từng con số | Ba phép thử đáp án biết trước đạt; dòng làm lại tính riêng khớp 2.264.000 đ (simulated) |
 
@@ -53,5 +54,6 @@ Tôi dùng Claude Code (model Claude Sonnet 5.5) làm trợ lý, theo bốn ki�
 
 Điều chưa làm được và sẽ làm khác:
 
-- Bảng lỗi và mục 5 của hồ sơ launch làm sau phần D và E; lần sau sẽ gắn nhãn sớm để hồ sơ đủ bảy mục trước giờ duyệt chéo.
+- Chưa có hai bộ nhãn độc lập nên phần C không đo được đồng thuận; lần sau hai người gắn nhãn tay ngay từ CP3, trước khi xem đáp án.
+- Chưa ghi được kết quả duyệt chéo; lần sau xác định nhóm chấm và gửi hồ sơ đúng mốc.
 - Nhóm chỉ có hai người nên một người giữ nhiều phần; cần chia việc và hẹn giờ bàn giao từ đầu buổi.

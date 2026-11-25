@@ -53,10 +53,13 @@ Bốn vai của lab:
 - Điền `report/team/bang_chi_phi.md`.
 - Lập bảng chia việc ban đầu của nhóm.
 - Codex hỗ trợ triển khai và kiểm tra A–B theo hướng dẫn trong repo.
+- Soạn bảng lỗi, nhãn tham khảo và bảng khắc phục với Codex; đối soát kế hoạch pilot, chỉ số và hồ sơ launch.
 
 ### Bằng chứng
 
 - Commit `8db1bd7`: [lab13.py](src/lab13.py), [bang_chi_phi.md](report/team/bang_chi_phi.md), `TEAM.md`.
+- Commit `e9ac099`, `24a0419`, `16bef58`, `55fafcf`, `3e4f9a7`: [bang_loi.md](report/team/bang_loi.md).
+- Commit `28ab433`: [pilot_plan.yaml](report/team/pilot_plan.yaml), [chi_so.md](report/team/chi_so.md), [ho_so_launch_v0.md](report/team/ho_so_launch_v0.md).
 
 ## LuuNguyenChiDuc-2A202603923
 
@@ -75,6 +78,7 @@ Bốn vai của lab:
 - Hoàn thành phần tính D1 và E1 trong `src/lab13.py`, `pilot_plan.yaml`, `chi_so.md` và `ho_so_launch_v0.md`.
 - Sửa lỗi in tiếng Việt khi chuyển hướng output trên Windows.
 - Bổ sung kết luận A3 trong `bang_chi_phi.md`; hoàn thiện `TEAM.md` theo mẫu và viết báo cáo nhóm.
+- Tổng hợp bảng lỗi và chỉnh lại mẫu năm luật dừng.
 
 ### Bằng chứng
 

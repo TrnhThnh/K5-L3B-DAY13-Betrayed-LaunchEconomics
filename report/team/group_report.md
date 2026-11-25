@@ -20,7 +20,7 @@ Số của nhiệm vụ trước được dùng lại cho nhiệm vụ sau: chi 
 | --- | --- | --- |
 | A · Mô hình chi phí | Qua ba phép thử đáp án biết trước, rồi cộng chi phí mọi lần chạy và chỉ chia cho yêu cầu thành công; tách theo loại và cộng chi phí cố định | [bang_chi_phi.md](bang_chi_phi.md) |
 | B · Độ nhạy | Đổi từng yếu tố và một cặp; tính chi phí cả hệ thống theo giới hạn chạy và kịch bản xem lại 100% | [bang_chi_phi.md](bang_chi_phi.md) |
-| C · Bảng lỗi | Có 20 nhãn tham khảo và bảng khắc phục 5 loại; chờ hai bộ nhãn độc lập để tính đồng thuận | [bang_loi.md](bang_loi.md) |
+| C · Bảng lỗi | Nhãn cho 20 ca soạn nháp bằng AI rồi nhóm nhận dùng, kèm quy tắc cho ca dễ lẫn và bảng khắc phục 5 loại; chưa có hai bộ nhãn độc lập nên không tính đồng thuận | [bang_loi.md](bang_loi.md) |
 | D · Pilot | Tính năm cỡ mẫu trước khi chọn chia theo nhân viên; đặt ngưỡng dừng sau khi xem tỉ lệ của đợt chạy thử | [pilot_plan.yaml](pilot_plan.yaml) |
 | E · Chỉ số và hồ sơ | Tính thử ba chỉ số, đặc tả 12 event có `trace_id`, ba dòng rủi ro và hồ sơ launch bảy mục | [chi_so.md](chi_so.md), [ho_so_launch_v0.md](ho_so_launch_v0.md) |
 
@@ -38,13 +38,14 @@ Số của nhiệm vụ trước được dùng lại cho nhiệm vụ sau: chi 
 
 **Đề xuất:** Go có điều kiện, với năm điều kiện có người phụ trách và ngày kiểm tra trong [hồ sơ launch v0](ho_so_launch_v0.md).
 
-**Kết quả duyệt chéo nhận từ hội đồng:** chờ điền theo phiếu thật của hội đồng.
+**Kết quả duyệt chéo:** tại thời điểm nộp, nhóm không ghi nhận được phiếu chấm của hội đồng và chưa chấm nhóm khác.
 
 ## 5. Khó khăn và cách xử lý
 
 | Khó khăn | Cách xử lý |
 | --- | --- |
 | Nhóm chỉ có 2 người cho bốn vai | Mỗi người giữ nhiều vai và bàn giao qua repo theo bảng chia việc trong `TEAM.md` |
+| Không có hai bộ nhãn độc lập cho 20 ca lỗi | Ghi rõ nguồn của nhãn trong `bang_loi.md` và không báo tỉ lệ đồng thuận |
 | Trên Windows, `python lab13.py` báo `UnicodeEncodeError: 'charmap' codec can't encode character 'ử'` khi output được chuyển ra file hoặc pipe | Thêm `sys.stdout.reconfigure(encoding='utf-8')`; chạy lại với output chuyển ra file kết thúc bình thường |
 | Lệnh kiểm tra YAML trong `CHECKPOINTS.md` báo `UnicodeDecodeError` trên Windows | Mở file với `encoding='utf-8'` |
 | Với 40 nhân viên, không cách chia theo cụm nào đủ mẫu cho mức chênh 5 điểm | Chia theo nhân viên, chấp nhận mức chênh 6 điểm và ghi rõ power 0,64 ở 5 điểm |
@@ -53,9 +54,9 @@ Số của nhiệm vụ trước được dùng lại cho nhiệm vụ sau: chi 
 
 ## 6. Tổng hợp đóng góp
 
-- Trịnh Hưng Thịnh: nhiệm vụ A và B.
-- Lưu Nguyễn Chí Đức: kiểm số A–B, nhiệm vụ D và E, báo cáo nhóm.
-- Cả hai: nhiệm vụ C, duyệt chéo và nộp bài.
+- Trịnh Hưng Thịnh: nhiệm vụ A và B; soạn bảng lỗi và bảng khắc phục với AI; đối soát kế hoạch pilot và hồ sơ.
+- Lưu Nguyễn Chí Đức: kiểm số A–B, nhiệm vụ D và E, tổng hợp bảng lỗi và báo cáo nhóm.
+- Cả hai: nộp bài.
 
 Chi tiết và bằng chứng nằm trong [TEAM.md](../../TEAM.md).
 
