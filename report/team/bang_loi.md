@@ -4,7 +4,7 @@
 
 ## Hai bộ nhãn độc lập
 
-Hai thành viên xem mục “Hai mươi ca lỗi” trong đề Word và ghi 20 nhãn vào hai bản riêng trong 8 phút. Chốt cả hai bản rồi mới mở bảng khắc phục và đối chiếu. Giữ nguyên nhãn ban đầu khi điền cột “Nhãn thống nhất”.
+Hai thành viên xem mục “Hai mươi ca lỗi” trong đề Word và ghi 20 nhãn vào hai bản riêng trong 8 phút. Chốt cả hai bản rồi mới xem nhãn tham khảo, bảng khắc phục và đối chiếu. Giữ nguyên nhãn ban đầu khi điền cột “Nhãn thống nhất”.
 
 Người gắn nhãn 1: Thinh · Người gắn nhãn 2: Đức
 
@@ -38,6 +38,21 @@ Người gắn nhãn 1: Thinh · Người gắn nhãn 2: Đức
 Mỗi ca không trùng một câu. Đồng thuận dưới 80% thì ghi định nghĩa đã viết lại.
 
 - Chờ đối chiếu hai bộ nhãn để ghi quy tắc cho từng ca lệch.
+
+<details>
+<summary>Nhãn tham khảo cho 20 ca (mở sau khi chốt hai bộ nhãn)</summary>
+
+| Loại lỗi | Ca |
+| --- | --- |
+| Do người dùng | 1, 6, 9, 14 |
+| Hệ thống | 2, 7, 8, 15, 20 |
+| Ngữ cảnh | 3, 10, 16, 18 |
+| Giới hạn hệ thống | 4, 11, 13, 19 |
+| Ngầm | 5, 12, 17 |
+
+Đối chiếu với [hướng dẫn Lab 13, Nhiệm vụ C](../../docs/Lab13_Huong_dan_chi_tiet_buoi_chieu.md#nhiệm-vụ-c--bảng-lỗi-và-cách-khắc-phục-30-phút). Tỷ lệ đồng thuận được tính từ hai bộ nhãn của thành viên.
+
+</details>
 
 ## Bảng khắc phục cho 5 ca, mỗi loại một ca
 
