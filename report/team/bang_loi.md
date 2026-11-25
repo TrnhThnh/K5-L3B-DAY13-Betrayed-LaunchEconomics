@@ -10,28 +10,28 @@ Codex điền cả hai cột theo cùng bộ nhãn tham khảo. Hai bản nháp 
 
 | Ca | Thịnh  | Đức | Trùng bản nháp? | Nhãn thống nhất |
 | --: | --- | --- | --- | --- |
-| 1 | Do người dùng | Do người dùng | Có | Có |
-| 2 | Hệ thống | Hệ thống | Có | Có |
-| 3 | Ngữ cảnh | Ngữ cảnh | Có | Có |
-| 4 | Giới hạn hệ thống | Giới hạn hệ thống | Có | Có |
-| 5 | Ngầm | Ngầm | Có | Có |
-| 6 | Do người dùng | Do người dùng | Có | Có |
-| 7 | Hệ thống | Hệ thống | Có | Có |
-| 8 | Hệ thống | Hệ thống | Có | Có |
-| 9 | Do người dùng | Do người dùng | Có | Có |
-| 10 | Ngữ cảnh | Ngữ cảnh | Có | Có |
-| 11 | Giới hạn hệ thống | Giới hạn hệ thống | Có | Có |
-| 12 | Ngầm | Ngầm | Có | Có |
-| 13 | Giới hạn hệ thống | Giới hạn hệ thống | Có | Có |
-| 14 | Do người dùng | Do người dùng | Có | Có |
-| 15 | Hệ thống | Hệ thống | Có | Có |
-| 16 | Ngữ cảnh | Ngữ cảnh | Có | Có |
-| 17 | Ngầm | Ngầm | Có | Có |
-| 18 | Ngữ cảnh | Ngữ cảnh | Có | Có |
-| 19 | Giới hạn hệ thống | Giới hạn hệ thống | Có | Có |
-| 20 | Hệ thống | Hệ thống | Có | Có |
+| 1 | Do người dùng | Do người dùng | Có | Do người dùng |
+| 2 | Hệ thống | Hệ thống | Có | Hệ Thống |
+| 3 | Ngữ cảnh | Ngữ cảnh | Có | Hệ Thống |
+| 4 | Giới hạn hệ thống | Giới hạn hệ thống | Có | Giới hạn hệ thống |
+| 5 | Ngầm | Ngầm | Có | Ngầm |
+| 6 | Do người dùng | Do người dùng | Có | Do người dùng |
+| 7 | Hệ thống | Hệ thống | Có | Hệ thống |
+| 8 | Hệ thống | Hệ thống | Có | Hệ thống |
+| 9 | Do người dùng | Do người dùng | Có | Do người dùng |
+| 10 | Ngữ cảnh | Ngữ cảnh | Có | Ngữ cảnh |
+| 11 | Giới hạn hệ thống | Giới hạn hệ thống | Có | Giới hạn hệ thống |
+| 12 | Ngầm | Ngầm | Có | Ngầm |
+| 13 | Giới hạn hệ thống | Giới hạn hệ thống | Có | Giới hạn hệ thống |
+| 14 | Do người dùng | Do người dùng | Có | Do người dùng |
+| 15 | Hệ thống | Hệ thống | Có | Hệ thống |
+| 16 | Ngữ cảnh | Ngữ cảnh | Có | Ngữ cảnh |
+| 17 | Ngầm | Ngầm | Có | Ngầm |
+| 18 | Ngữ cảnh | Do người dùng | không | Ngữ cảnh |
+| 19 | Giới hạn hệ thống | Ngầm | Không | Giới hạn hệ thống |
+| 20 | Hệ thống | Do người dùng | Không | Hệ thống |
 
-**Tỉ lệ đồng thuận:** Chờ hai bộ nhãn. Đếm số ca trùng ở hai cột nhãn ban đầu rồi chia cho 20. Ngưỡng của bài là 16/20 (80%).
+**Tỉ lệ đồng thuận:** 80%. Đếm số ca trùng ở hai cột nhãn ban đầu rồi chia cho 20. Ngưỡng của bài là 16/20 (80%).
 
 ## Quy tắc phân biệt cho các ca không trùng
 
