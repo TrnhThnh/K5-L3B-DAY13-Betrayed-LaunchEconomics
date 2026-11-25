@@ -6,7 +6,7 @@
 
 Hai thành viên xem mục “Hai mươi ca lỗi” trong đề Word và ghi 20 nhãn vào hai bản riêng trong 8 phút. Chốt cả hai bản rồi mới xem nhãn tham khảo, bảng khắc phục và đối chiếu. Giữ nguyên nhãn ban đầu khi điền cột “Nhãn thống nhất”.
 
-Người gắn nhãn 1: Thinh · Người gắn nhãn 2: Đức
+Người gắn nhãn 1: Thịnh (chờ bộ nhãn) · Người gắn nhãn 2: Đức (chờ bộ nhãn)
 
 | Ca | Nhãn người 1 | Nhãn người 2 | Trùng? | Nhãn thống nhất |
 | --: | --- | --- | --- | --- |
@@ -42,13 +42,28 @@ Mỗi ca không trùng một câu. Đồng thuận dưới 80% thì ghi định 
 <details>
 <summary>Nhãn tham khảo cho 20 ca (mở sau khi chốt hai bộ nhãn)</summary>
 
-| Loại lỗi | Ca |
-| --- | --- |
-| Do người dùng | 1, 6, 9, 14 |
-| Hệ thống | 2, 7, 8, 15, 20 |
-| Ngữ cảnh | 3, 10, 16, 18 |
-| Giới hạn hệ thống | 4, 11, 13, 19 |
-| Ngầm | 5, 12, 17 |
+| Ca | Nhãn tham khảo | Căn cứ trong tình huống |
+| --: | --- | --- |
+| 1 | Do người dùng | Khách nhập thiếu hai chữ số của tài khoản. |
+| 2 | Hệ thống | Trợ lý dùng sai tham số bảng giá cho kiện 28 kg. |
+| 3 | Ngữ cảnh | Tiền về ví đúng thiết kế, trong khi khách chờ tiền về ngân hàng. |
+| 4 | Giới hạn hệ thống | LogiX thiếu dữ liệu của chặng do hãng nước ngoài giao. |
+| 5 | Ngầm | Khoản hoàn tính trên giá trước giảm chỉ bị phát hiện khi kiểm tra mẫu. |
+| 6 | Do người dùng | Khách chọn luồng giao trễ cho yêu cầu về hàng bị vỡ. |
+| 7 | Hệ thống | Trợ lý báo đã hoàn dù sổ cái chưa ghi thành công. |
+| 8 | Hệ thống | Trợ lý dẫn một điều khoản không tồn tại trong chính sách. |
+| 9 | Do người dùng | Khách nhập mã đơn sàn vào ô mã vận đơn. |
+| 10 | Ngữ cảnh | Điều khoản bất khả kháng được áp dụng đúng, nhưng cam kết trên ứng dụng tạo kỳ vọng khác. |
+| 11 | Giới hạn hệ thống | Trợ lý không hỗ trợ dạng đầu vào âm thanh. |
+| 12 | Ngầm | Chi phí token tăng kéo dài dù kết quả đúng và chưa có ai phát hiện. |
+| 13 | Giới hạn hệ thống | Hoàn phí bảo hiểm của đối tác nằm ngoài phạm vi trợ lý. |
+| 14 | Do người dùng | Khách bấm xác nhận nhận tiền trước khi tiền về. |
+| 15 | Hệ thống | Trợ lý tính hoàn 100% thay vì 50% theo chính sách. |
+| 16 | Ngữ cảnh | Giờ gửi đúng thiết kế gửi ngay, nhưng rơi vào giờ nghỉ của khách. |
+| 17 | Ngầm | Bảng giá cũ gây sai tiền nhiều ngày mà khách không mở lại yêu cầu. |
+| 18 | Ngữ cảnh | Số tiền đúng, nhưng thông báo thiếu cách tính nên khách hiểu là hoàn thiếu. |
+| 19 | Giới hạn hệ thống | Yêu cầu vượt mốc 12 tháng dữ liệu trợ lý truy cập được. |
+| 20 | Hệ thống | Luồng hoàn thiếu khóa chống trùng nên gửi lại yêu cầu dẫn đến hoàn hai lần. |
 
 Đối chiếu với [hướng dẫn Lab 13, Nhiệm vụ C](../../docs/Lab13_Huong_dan_chi_tiet_buoi_chieu.md#nhiệm-vụ-c--bảng-lỗi-và-cách-khắc-phục-30-phút). Tỷ lệ đồng thuận được tính từ hai bộ nhãn của thành viên.
 
