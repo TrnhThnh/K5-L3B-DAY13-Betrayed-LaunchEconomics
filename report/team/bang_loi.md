@@ -2,34 +2,34 @@
 
 20 ca lỗi nằm trong `docs/Ngay13_Lab13_De_bai_hoc_vien.docx`. Năm loại theo Google PAIR: **Do người dùng · Hệ thống · Ngữ cảnh · Giới hạn hệ thống · Ngầm**. Gắn nhãn theo nguyên nhân gốc, không theo chỗ cần sửa.
 
-## Hai bộ nhãn độc lập
+## Hai cột nhãn dự thảo cho Thịnh và Đức
 
 Hai thành viên xem mục “Hai mươi ca lỗi” trong đề Word và ghi 20 nhãn vào hai bản riêng trong 8 phút. Chốt cả hai bản rồi mới xem nhãn tham khảo, bảng khắc phục và đối chiếu. Giữ nguyên nhãn ban đầu khi điền cột “Nhãn thống nhất”.
 
-Người gắn nhãn 1: Thịnh (chờ bộ nhãn) · Người gắn nhãn 2: Đức (chờ bộ nhãn)
+Codex điền cả hai cột theo cùng bộ nhãn tham khảo. Hai bản nháp trùng 20/20 do dùng chung nguồn.
 
-| Ca | Nhãn người 1 | Nhãn người 2 | Trùng? | Nhãn thống nhất |
+| Ca | Dự thảo cho Thịnh (AI) | Dự thảo cho Đức (AI) | Trùng bản nháp? | Nhãn thống nhất |
 | --: | --- | --- | --- | --- |
-| 1 | ... | ... | ... | ... |
-| 2 | ... | ... | ... | ... |
-| 3 | ... | ... | ... | ... |
-| 4 | ... | ... | ... | ... |
-| 5 | ... | ... | ... | ... |
-| 6 | ... | ... | ... | ... |
-| 7 | ... | ... | ... | ... |
-| 8 | ... | ... | ... | ... |
-| 9 | ... | ... | ... | ... |
-| 10 | ... | ... | ... | ... |
-| 11 | ... | ... | ... | ... |
-| 12 | ... | ... | ... | ... |
-| 13 | ... | ... | ... | ... |
-| 14 | ... | ... | ... | ... |
-| 15 | ... | ... | ... | ... |
-| 16 | ... | ... | ... | ... |
-| 17 | ... | ... | ... | ... |
-| 18 | ... | ... | ... | ... |
-| 19 | ... | ... | ... | ... |
-| 20 | ... | ... | ... | ... |
+| 1 | Do người dùng | Do người dùng | Có | Chờ đối chiếu |
+| 2 | Hệ thống | Hệ thống | Có | Chờ đối chiếu |
+| 3 | Ngữ cảnh | Ngữ cảnh | Có | Chờ đối chiếu |
+| 4 | Giới hạn hệ thống | Giới hạn hệ thống | Có | Chờ đối chiếu |
+| 5 | Ngầm | Ngầm | Có | Chờ đối chiếu |
+| 6 | Do người dùng | Do người dùng | Có | Chờ đối chiếu |
+| 7 | Hệ thống | Hệ thống | Có | Chờ đối chiếu |
+| 8 | Hệ thống | Hệ thống | Có | Chờ đối chiếu |
+| 9 | Do người dùng | Do người dùng | Có | Chờ đối chiếu |
+| 10 | Ngữ cảnh | Ngữ cảnh | Có | Chờ đối chiếu |
+| 11 | Giới hạn hệ thống | Giới hạn hệ thống | Có | Chờ đối chiếu |
+| 12 | Ngầm | Ngầm | Có | Chờ đối chiếu |
+| 13 | Giới hạn hệ thống | Giới hạn hệ thống | Có | Chờ đối chiếu |
+| 14 | Do người dùng | Do người dùng | Có | Chờ đối chiếu |
+| 15 | Hệ thống | Hệ thống | Có | Chờ đối chiếu |
+| 16 | Ngữ cảnh | Ngữ cảnh | Có | Chờ đối chiếu |
+| 17 | Ngầm | Ngầm | Có | Chờ đối chiếu |
+| 18 | Ngữ cảnh | Ngữ cảnh | Có | Chờ đối chiếu |
+| 19 | Giới hạn hệ thống | Giới hạn hệ thống | Có | Chờ đối chiếu |
+| 20 | Hệ thống | Hệ thống | Có | Chờ đối chiếu |
 
 **Tỉ lệ đồng thuận:** Chờ hai bộ nhãn. Đếm số ca trùng ở hai cột nhãn ban đầu rồi chia cho 20. Ngưỡng của bài là 16/20 (80%).
 
