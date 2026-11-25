@@ -53,7 +53,7 @@ Số của nhiệm vụ trước được dùng lại cho nhiệm vụ sau: chi 
 
 ## 6. Tổng hợp đóng góp
 
-- TrnhThnh: nhiệm vụ A và B.
+- Trịnh Hưng Thịnh: nhiệm vụ A và B.
 - Lưu Nguyễn Chí Đức: kiểm số A–B, nhiệm vụ D và E, báo cáo nhóm.
 - Cả hai: nhiệm vụ C, duyệt chéo và nộp bài.
 

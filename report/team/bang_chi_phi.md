@@ -26,6 +26,7 @@ Tái lập số liệu bằng `python lab13.py` trong thư mục `src/`. Giá t�
 
 - Chi phí mỗi việc thành công gấp **16,3 lần** hóa đơn trên mỗi yêu cầu (simulated). Tử số gồm cả chi phí các lần lỗi, còn mẫu số chỉ đếm 978 yêu cầu thành công.
 - Làm lại chiếm **51,8%**, khoản lớn nhất trong tổng chi phí (simulated).
+- Đối chiếu riêng dòng làm lại: tổng `phut_lam_lai_simulated` là 1.132 phút, nhân 2.000 đ bằng **2.264.000 đ** (simulated), khớp bảng trên.
 - Cộng 12.000 đ cho mỗi ca trong 222 ca không thành công theo quy ước B3, chi phí cả hệ thống là **5.865 đ/yêu cầu** (simulated), bằng 0,49 lần chi phí nhân viên tự làm.
 
 ## A3 · Tách theo loại yêu cầu

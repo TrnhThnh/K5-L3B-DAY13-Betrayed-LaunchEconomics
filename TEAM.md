@@ -13,8 +13,8 @@
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | --- | --- | --- | --- | --- |
-| 1 | Chờ bổ sung | Chờ bổ sung | Chờ bổ sung | TrnhThnh | Người viết code A–B, người gắn nhãn 1 |
-| 2 | Lưu Nguyễn Chí Đức | 2A202603923 | Chờ bổ sung | TheDLCrimson | Người kiểm số A–B, người viết code D1, người gắn nhãn 2 kiêm giữ hồ sơ |
+| 1 | Trịnh Hưng Thịnh | 2A202603907 | <26ai.thinhth@vinuni.edu.vn> | TrnhThnh | Người viết code A–B, người gắn nhãn 1 |
+| 2 | Lưu Nguyễn Chí Đức | 2A202603923 | <26ai.duclnc@vinuni.edu.vn> | TheDLCrimson | Người kiểm số A–B, người viết code D1, người gắn nhãn 2 kiêm giữ hồ sơ |
 
 Nhóm có 2 người nên mỗi người giữ nhiều vai trong bốn vai của lab.
 Người viết code đổi từ thành viên 1 (A–B) sang thành viên 2 (D1), nên cả hai đều làm việc trực tiếp với mô hình trong `src/lab13.py`.
@@ -30,16 +30,16 @@ Bốn vai của lab:
 
 | Phần | Phụ trách | Sản phẩm và bàn giao |
 | --- | --- | --- |
-| A–B | TrnhThnh | A1–A4, B1–B4 trong [lab13.py](src/lab13.py) và [bảng chi phí](report/team/bang_chi_phi.md); bàn giao số A3–A4, B1–B4 để chọn phạm vi, ngưỡng chi phí và rủi ro |
+| A–B | Thịnh | A1–A4, B1–B4 trong [lab13.py](src/lab13.py) và [bảng chi phí](report/team/bang_chi_phi.md); bàn giao số A3–A4, B1–B4 để chọn phạm vi, ngưỡng chi phí và rủi ro |
 | Kiểm số A–B | Đức | Chạy lại trên máy thứ hai và đối chiếu một dòng chi phí |
 | C | Cả hai | Mỗi người ghi riêng 20 nhãn; Đức tổng hợp vào [bảng lỗi](report/team/bang_loi.md); hai người tính đồng thuận, thống nhất ca lệch và chọn 5 ca khắc phục |
 | D | Đức | Phép tính D1 trong [lab13.py](src/lab13.py) và [kế hoạch pilot](report/team/pilot_plan.yaml) |
 | E | Đức | [Chỉ số, event, rủi ro](report/team/chi_so.md) và [hồ sơ launch v0](report/team/ho_so_launch_v0.md) |
-| Duyệt chéo, báo cáo và nộp | Cả hai | Đức tổng hợp [báo cáo nhóm](report/team/group_report.md) và [phiếu chấm](report/team/phieu_cham.md); TrnhThnh rà bằng chứng chi phí và trình bày A–B; mỗi người tự điền báo cáo cá nhân và tự nộp link repo trên LMS |
+| Duyệt chéo, báo cáo và nộp | Cả hai | Đức tổng hợp [báo cáo nhóm](report/team/group_report.md) và [phiếu chấm](report/team/phieu_cham.md); Thịnh rà bằng chứng chi phí và trình bày A–B; mỗi người tự điền báo cáo cá nhân và tự nộp link repo trên LMS |
 
 ## Cá nhân
 
-## TrnhThnh (chờ bổ sung họ tên và MSSV)
+## TrinhHungThinh-2A202603907
 
 ### Phần việc phụ trách
 
@@ -70,6 +70,7 @@ Bốn vai của lab:
 ### Đóng góp cụ thể
 
 - Chạy lại `src/lab13.py` trên máy thứ hai: ba phép thử A1 đạt, số A–B khớp số đối chiếu trong hướng dẫn.
+- Đối chiếu dòng làm lại bằng phép tính riêng: 1.132 phút × 2.000 đ = 2.264.000 đ (simulated).
 - Chốt chia pilot theo nhân viên với mức chênh 6 điểm và đề xuất Go có điều kiện.
 - Hoàn thành phần tính D1 và E1 trong `src/lab13.py`, `pilot_plan.yaml`, `chi_so.md` và `ho_so_launch_v0.md`.
 - Sửa lỗi in tiếng Việt khi chuyển hướng output trên Windows.
